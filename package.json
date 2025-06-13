@@ -1,5 +1,8 @@
 {
   "name": "paytm-project",
+  "author": "Shaurya Sharma",
+  "description" : "A Machine Learning Company which take data from the user, analyses it, and the provides the user the data in the required form, or provides snippets of data asked by the user.",
+  "keywords" : ["Machine Learning", "Data"],
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@barba/core": "^2.10.3",
     "@gsap/react": "^2.1.2",
     "gsap": "^3.13.0",
     "react": "^19.1.0",

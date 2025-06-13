@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import bigVid from '../images/bigVid.mp4'
 import { useForm } from 'react-hook-form'
 
-const Login = () => {
+const Signin = () => {
   const navigate = useNavigate();
   const { 
     register, 
@@ -23,7 +23,7 @@ const Login = () => {
       // Navigate to home page after successful login
       navigate('/');
     } catch (error) {
-      console.error('Login error:', error);
+      console.error('Signin error:', error);
       // Here you can handle any errors, show error messages, etc.
     }
   };
@@ -47,6 +47,65 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white/15 backdrop-blur-sm p-8 rounded-lg shadow-lg w-96"
         >
+          
+          <div className="mb-4">
+            <input 
+              {...register("firstName", { required: true })} 
+              aria-invalid={errors.firstName ? "true" : "false"}
+              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+              placeholder="Enter your Username"
+            />
+            {errors.firstName?.type === "required" && (
+              <p className="text-red-500 text-sm mt-1" role="alert">Username is required</p>
+            )}
+          </div>
+
+          <div className="mb-4">
+            <input 
+              {...register("firstName", { required: true })} 
+              aria-invalid={errors.firstName ? "true" : "false"}
+              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+              placeholder="Enter your Name"
+            />
+            {errors.firstName?.type === "required" && (
+              <p className="text-red-500 text-sm mt-1" role="alert">Name is required</p>
+            )}
+          </div>
+          
+          <div className="mb-4">
+            <select 
+              {...register("gender")}
+              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+            >
+              <option value="">Select Gender</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <input
+              {...register("number", {
+                required: true,
+                pattern: {
+                  value: /^\d{10}$/,
+                  message: "Please enter a valid mobile number"
+                }
+              })}
+              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
+              placeholder="Enter your Number"
+              aria-invalid={errors.number ? "true" : "false"}
+            />
+            {errors.number && (
+              <p className="text-red-500 text-sm mt-1" role="alert">
+                {errors.number.type === "required" 
+                  ? "Mobile number is required" 
+                  : errors.number.message}
+              </p>
+            )}
+          </div>
+
           <div className="mb-4">
             <input
               {...register("mail", {
@@ -65,39 +124,22 @@ const Login = () => {
             )}
           </div>
 
-          <div className='mb-4'>
-            <input
-              {...register("password", {
-                required: true,
-                pattern: {
-                  message: "Please enter the correct password"
-                }
-              })}
-              className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500"
-              placeholder="Enter your Password"
-              aria-invalid={errors.mail ? "true" : "false"}
-            />
-            {errors.mail && (
-              <p className="text-red-500 text-sm mt-1" role="alert">{errors.mail.message}</p>
-            )}
-          </div>
-
-          <div className="mb-4">
+          <div className="mb-6">
             <button 
               type="submit"
               className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
             >
-              Login
+              Sign Up
             </button>
           </div>
 
           <div className="text-center">
-            <p className="text-white mb-2">If you have not registered yet</p>
+            <p className="text-white mb-2">If you have already registered</p>
             <Link 
-              to="/signup" 
+              to="/login" 
               className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
             >
-              Sign Up
+              Login
             </Link>
           </div>
         </form>
@@ -106,4 +148,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signin

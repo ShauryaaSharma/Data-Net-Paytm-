@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import bigVid from '../images/bigVid.mp4'
+import Silk from './Silk';
 import { useForm } from 'react-hook-form'
+import GlitchText from './GlitchText';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,16 +32,24 @@ const Login = () => {
 
   return (
     <div className="relative min-h-screen">
-      <div className="absolute inset-0 w-full h-full">
-        <video 
-          className="w-full h-full object-cover"
-          autoPlay 
-          muted 
-          loop
-          playsInline={true}
+      <div className='z-20 absolute top-8 left-1/2 transform -translate-x-1/2'>
+        <GlitchText
+          speed={1}
+          enableShadows={true}
+          enableOnHover={false}
+          className='custom-class text-6xl font-bold text-white'
         >
-          <source src={bigVid} type="video/mp4" />
-        </video>
+          DATA NET
+        </GlitchText>
+      </div>
+      <div className="absolute inset-0 w-full h-full">
+      <Silk
+        speed={5}
+        scale={1}
+        color="#7B7481"
+        noiseIntensity={1.5}
+        rotation={0}
+      />
       </div>
       
       <div className="relative z-10 flex justify-center items-center min-h-screen">
@@ -85,7 +95,7 @@ const Login = () => {
           <div className="mb-4">
             <button 
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+              className="w-full bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 transition-colors"
             >
               Login
             </button>
@@ -95,7 +105,7 @@ const Login = () => {
             <p className="text-white mb-2">If you have not registered yet</p>
             <Link 
               to="/signup" 
-              className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+              className="inline-block bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700 transition-colors"
             >
               Sign Up
             </Link>

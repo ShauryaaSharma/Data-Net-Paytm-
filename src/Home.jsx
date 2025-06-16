@@ -1,8 +1,8 @@
 import NavBar from './components/NavBar'
-import HeroComponent from './components/Hero'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import LetterGlitch from './components/LetterGlitch';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -100,11 +100,16 @@ const Home = () => {
 
     return (
     <div className="relative w-full h-screen">
-      <HeroComponent />
-      <div className='relative z-20'>
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <div className='absolute top-0 left-0 right-0 z-30 bg-transparent'>
         <NavBar />
       </div>
-      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white'>
+      <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20'>
         <p id='data-is-everywhere' className='text-7xl font-bold'>Data is Everywhere</p>
         <p id='data-net-gives-you-the-power' className='text-7xl font-bold'> We give YOU the power to make sense of it</p>
         <p id='welcome' className='text-7xl font-bold'>Welcome to</p>
@@ -112,7 +117,7 @@ const Home = () => {
       </div>
       
       {/* Scroll Indicator */}
-      <div id='scroll-indicator' className='absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-0'>
+      <div id='scroll-indicator' className='absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-0 z-20'>
         <div className='flex flex-col items-center space-y-2'>
           <span className='text-sm font-light tracking-wider'>SCROLL FOR MORE</span>
           <div className='w-6 h-10 border-2 border-white rounded-full flex justify-center'>

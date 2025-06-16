@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import bigVid from '../images/bigVid.mp4'
+import Silk from './Silk';
 import { useForm } from 'react-hook-form'
+import TrueFocus from './TrueFocus';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -19,7 +20,6 @@ const Signin = () => {
       // Simulate API call success
       // Later you can replace this with actual API call
       // const response = await apiCall(data);
-      
       // Navigate to home page after successful login
       navigate('/');
     } catch (error) {
@@ -30,16 +30,24 @@ const Signin = () => {
 
   return (
     <div className="relative min-h-screen">
+      <div className="z-20 absolute top-8 left-1/2 transform -translate-x-1/2">
+        <TrueFocus 
+          sentence="DATA NET"
+          manualMode={false}
+          blurAmount={5}
+          borderColor="red"
+          animationDuration={2}
+          pauseBetweenAnimations={1}
+        />
+      </div>
       <div className="absolute inset-0 w-full h-full">
-        <video 
-          className="w-full h-full object-cover"
-          autoPlay 
-          muted 
-          loop
-          playsInline={true}
-        >
-          <source src={bigVid} type="video/mp4" />
-        </video>
+      <Silk
+        speed={5}
+        scale={1}
+        color="#7B7481"
+        noiseIntensity={1.5}
+        rotation={0}
+      />
       </div>
       
       <div className="relative z-10 flex justify-center items-center min-h-screen">

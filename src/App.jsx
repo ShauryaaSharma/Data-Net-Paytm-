@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
 import Home from './Home'
 import Contact from './Contact'
 import About from './About'

@@ -1,0 +1,14 @@
+.revealed {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.encrypted {
+  color: #7B7481;
+  transition: all 0.3s ease;
+}
+
+.all-letters {
+  cursor: pointer;
+  user-select: none;
+}

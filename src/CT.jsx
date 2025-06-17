@@ -53,7 +53,7 @@ const CT = () => {
           avatarUrl={shauryaImage}
           showUserInfo={true}
           enableTilt={true}
-          onContactClick={() => window.open('https://in.linkedin.com/in/shaurya-sharma-2ba105275', '_blank')}
+          onContactClick={() => window.open('https://www.linkedin.com/in/shaurya-sharmaa/', '_blank')}
         />
         </div>
     </div>

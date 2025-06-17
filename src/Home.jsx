@@ -2,7 +2,8 @@ import NavBar from './components/NavBar'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import LetterGlitch from './components/LetterGlitch';
+import Particles from './components/Particles';
+import TextPressure from './components/TextPressure';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -100,12 +101,18 @@ const Home = () => {
 
     return (
     <div className="relative w-full h-screen">
-      <LetterGlitch
-        glitchSpeed={50}
-        centerVignette={true}
-        outerVignette={false}
-        smooth={true}
-      />
+      <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={1000}
+          particleSpread={10}
+          speed={1.5}
+          particleBaseSize={100}
+          moveParticlesOnHover={false}
+          alphaParticles={true}
+          disableRotation={false}
+        />
+      </div>
       <div className='absolute top-0 left-0 right-0 z-30 bg-transparent'>
         <NavBar />
       </div>
@@ -113,7 +120,22 @@ const Home = () => {
         <p id='data-is-everywhere' className='text-7xl font-bold'>Data is Everywhere</p>
         <p id='data-net-gives-you-the-power' className='text-7xl font-bold'> We give YOU the power to make sense of it</p>
         <p id='welcome' className='text-7xl font-bold'>Welcome to</p>
-        <p id='data-net' className='text-9xl font-bold'>Data Net</p>
+        <p id='data-net'>
+        <div style={{position: 'relative', height: '300px'}}>
+          <TextPressure
+            text="DATA NET"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#ffffff"
+            strokeColor="#ff0000"
+            minFontSize={36}
+          />
+        </div>
+        </p>
       </div>
       
       {/* Scroll Indicator */}
